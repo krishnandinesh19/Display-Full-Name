@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import "./FullNameDisplay.css";
 
 const FullNameDisplay = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
   const [formValid, setFormValid] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -25,15 +25,14 @@ const FullNameDisplay = () => {
     e.preventDefault();
     if (formValid) {
       setFullName(`${firstName} ${lastName}`);
-      setShowAlert(false);
     } else {
-      setShowAlert(true);
+      alert("Please fill in both fields.");
     }
   };
 
   return (
     <div className="displayName">
-      <h2>Display Full Name</h2>
+      <h2>Full Name Display</h2>
       <form onSubmit={displayFullName}>
         <div>
           <label htmlFor="firstName">First Name:</label>
@@ -55,16 +54,11 @@ const FullNameDisplay = () => {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">submit</button>
       </form>
-      {showAlert && (
-        <p style={{ color: "red" }}>
-          Please fill in both first name and last name.
-        </p>
-      )}
       {fullName && <p>Full Name: {fullName}</p>}
     </div>
   );
 };
 
-export default FullNameDisplay;
+export default FullNameDisplay;

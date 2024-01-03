@@ -1,12 +1,13 @@
 import React from "react";
 import FullNameDisplay from "./FullNameDisplay";
+import "./App.css";
 
-const App = () => {
+function App() {
   return (
-    <div>
+    <div className="App">
       <FullNameDisplay />
     </div>
   );
-};
+}
 
-export default App;
+export default App;
